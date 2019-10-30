@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS chat;
+
+USE chat;
+
+CREATE TABLE messages (
+    ID INT NOT NULL AUTO_INCREMENT,
+    message VARCHAR(255),
+    PRIMARY KEY (ID)
+);
