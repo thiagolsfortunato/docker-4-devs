@@ -27,7 +27,7 @@ function saveMessage(msg) {
     if (err) throw err;
     console.log("Conectado ao Banco de Dados!");
     db.query(
-      "INSERT INTO Messages SET ?",
+      "INSERT INTO messages SET ?",
         { message: msg.content.toString() },
         function(err, result) {
           if (err) throw err;

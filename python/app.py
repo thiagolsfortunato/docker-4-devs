@@ -4,8 +4,8 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-node_host = "localhost"
-node_port = "3000"
+node_host = os.getenv("NODE_HOST", default = "localhost")
+node_port = os.getenv("NODE_PORT", default = "3000")
 
 html = """ 
 <br>

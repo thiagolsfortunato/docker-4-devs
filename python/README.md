@@ -2,7 +2,7 @@
 
 Dependencies:
 
-* Python 2.7
+* Python 3.7
 
 Install the requirements:
 
@@ -13,9 +13,8 @@ pip install -r requirements.txt
 Configure the application:
 
 ```bash
-export RABBITMQ_HOST = [ rabbitmq host address ]
-export RABBITMQ_PORT = [ rabbitmq port ]
-export RABBITMQ_QUEUE = hello
+export NODE_HOST = [ node host address ]
+export NODE_PORT = [ node port ]
 ```
 
 Run the app localy:
