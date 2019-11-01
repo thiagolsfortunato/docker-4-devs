@@ -6,7 +6,9 @@
 
 ## objetivo
 
-- dockerizar as aplicações
+- baixar uma imagem docker
 - criar containers com o comando `docker run`
+- listar containers criados
+- remover containers
+- dockerizar as aplicações
 - criar containers utilizando docker-compose
-- 
