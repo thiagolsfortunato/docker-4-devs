@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:12
 
 WORKDIR /app
 
@@ -10,8 +10,10 @@ RUN npm install
 
 ENV MYSQL_HOST localhost
 ENV MYSQL_USER mysql-user
-ENV MYSQL_PASSWORD pa$$w0rd
+ENV MYSQL_PASSWORD mysql-pass
 ENV MYSQL_DB hello
 
+EXPOSE 3000
+
 # RUN APP
-ENTRYPOINT [ "node", "app.js" ]
+CMD [ "node", "app.js" ]
