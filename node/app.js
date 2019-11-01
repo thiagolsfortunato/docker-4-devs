@@ -16,7 +16,7 @@ const poll = mysql.createPool({
   waitForConnections: true,
   queueLimit: 0,
   host: process.env.MYSQL_HOST || "localhost",
-  user: process.env.MYSQL_USER || "root",
+  user: process.env.MYSQL_USER || "mysql-user",
   password: process.env.MYSQL_PASSWORD || "mysql-pass",
   database: process.env.MYSQL_DB || "chat"
 });
