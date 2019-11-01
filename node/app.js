@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.listen(port);
 
-console.log(`Aplicação teste executando em http://localhost:${port}/save`);
+console.log(`Aplicação teste executando em http://localhost:${port}/`);
 
 const poll = mysql.createPool({
   connectionLimit: 10,
@@ -24,8 +24,9 @@ const poll = mysql.createPool({
 
 app.post('/save', (req, res) => { 
   if (req.body.message) {
-    id = saveMessage(req.body.message);
-    id ? res.status(200).send("Mensagem salva com sucesso! ID: " + id) : res.status(500).send("Erro ao salvar mensagem");
+    saveMessage(req.body.message).then( id => {
+      id ? res.status(200).send("Mensagem salva com sucesso! ID: " + id) : res.status(500).send("Erro ao salvar mensagem");
+    });
   }
   else {
     res.status(204).send("Não salvamos mensagens vazias");

@@ -1,5 +1,6 @@
 import os
 import requests
+import json
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -8,8 +9,7 @@ node_host = os.getenv("NODE_HOST", default = "localhost")
 node_port = os.getenv("NODE_PORT", default = "3000")
 
 html = """ 
-<br>
-<h4>Type your message:</h4> 
+<h3>Type your message:</h3> 
 <br>
 <form method='POST' action='/'>
     <input type='text' name='message'>
@@ -29,12 +29,12 @@ def index():
 def save_message(message):
     NODE_API = "http://" + node_host + ":" + node_port + "/save"
     resp = requests.post(url = NODE_API, data = {'message': message})
-    print(resp)
+    print(resp.text)
     if (resp):
         response = """
-        <h3> Mensagem Salva com sucesso! </h3>
+        <h3>{resp}</h3>
         <button onClick="window.location.href=window.location.href;">Reload</button>
-        """
+        """.format(resp=resp.text)
     return response
     
 
