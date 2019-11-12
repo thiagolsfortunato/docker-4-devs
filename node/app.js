@@ -13,10 +13,10 @@ console.log(`Aplicação teste executando em http://localhost:${port}/`);
 
 const poll = mysql.createPool({
   connectionLimit: 10,
-  waitForConnections: true,
+  waitForConnections: true, 
   queueLimit: 0,
   host: process.env.MYSQL_HOST || "localhost",
-  user: process.env.MYSQL_USER || "mysql-user",
+  user: process.env.MYSQL_USER || "root",
   password: process.env.MYSQL_PASSWORD || "mysql-pass",
   database: process.env.MYSQL_DB || "chat"
 });
