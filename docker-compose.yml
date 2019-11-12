@@ -3,7 +3,6 @@ version: '3'
 services:
   
   python:
-    image:
     container_name:
     restart:
     ports:
@@ -11,7 +10,7 @@ services:
       - network
 
   mysql:
-    image: etec-mysql
+    image: my-mysql
     container_name: mysql
     restart: always
     ports:
