@@ -1,5 +1,7 @@
 FROM python:3.6
 
+LABEL maintainer="http://github.com/thiagolsfortunato"
+
 WORKDIR /app
 
 # COPY APP 
