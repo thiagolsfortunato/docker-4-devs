@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker run --dit \
+docker run -dit \
   --name mysql \
-  -p 3006:3306 \
-  [imagem-mysql]
+  -p 3306:3306 \
+  etec-mysql

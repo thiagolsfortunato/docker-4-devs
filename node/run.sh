@@ -1,9 +1,9 @@
 #!/bin/bash
 
-docker run --dit \
+docker run -dit \
   --name node \
   -p 3000:3000 \
-  -e MYSQL_DB=[DB-CHAT] \
-  -e MYSQL_HOST=[container-mysql] \
-  --link [container-mysql] \
-  [imagem-node]
+  -e MYSQL_DB=chat \
+  -e MYSQL_HOST=mysql \
+  --link mysql \
+  my-node
