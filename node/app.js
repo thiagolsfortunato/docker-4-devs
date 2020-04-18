@@ -21,14 +21,12 @@ const poll = mysql.createPool({
   database: process.env.MYSQL_DB || "chat"
 });
 
-
-app.post('/save', (req, res) => { 
+app.post('/save', (req, res) => {
   if (req.body.message) {
     saveMessage(req.body.message).then( id => {
       id ? res.status(200).send("Mensagem salva com sucesso! ID: " + id) : res.status(500).send("Erro ao salvar mensagem");
     });
-  }
-  else {
+  } else {
     res.status(204).send("Não salvamos mensagens vazias");
   }
 });
