@@ -1,4 +1,4 @@
-bimport os
+import os
 import requests
 import json
 from flask import Flask, request, jsonify
