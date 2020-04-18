@@ -1,28 +1,43 @@
 version: '3'
 
 services:
-  
-  python:
-    container_name:
-    restart:
-    ports:
-    networks:
-      - network
-
   mysql:
-    image: my-mysql
+    build:
+      context: ./mysql
     container_name: mysql
     restart: always
     ports:
-      - 3306:3306
+      - "3306:3306"
     networks:
       - network
-      
-  node:
-    image:
-    container_name:
-    restart:
+  python:
+    build:
+      context: ./python
+    container_name: python
+    restart: always
+    environment: 
+      - NODE_HOST=node
+      - NODE_PORT=3000
+    volumes: 
+      - ./python:/app
     ports:
+      - "8000:8000"
+    networks:
+      - network
+  node:
+    build:
+      context: ./node
+    container_name: node
+    restart: always
+    environment: 
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=mysql-user
+      - MYSQL_PASSWORD=mysql-pass
+      - MYSQL_DB=chat
+    volumes: 
+      - ./node:/app
+    ports:
+      - "3000:3000"
     networks:
       - network
 
